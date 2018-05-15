@@ -1,7 +1,7 @@
 # encoding: utf-8
 #!/usr/bin/env ruby
 
-class Acesso < SitePrism::Page
+class Cadastro < SitePrism::Page
 
     element :nome,  "input[id='register_name']"
     element :email, "input[id='register_email']"

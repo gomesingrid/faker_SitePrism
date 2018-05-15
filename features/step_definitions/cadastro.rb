@@ -2,16 +2,17 @@
 
  
 Dado("que eu acesse o site do heroku") do
-  visit 'https://ninjainvoices.herokuapp.com'
+  home = Acesso.new
+  home.load
 end
 
 Quando("eu realizar um cadastro novo") do
   find(:css, '#register').click
   @name = Faker::StarWars.character
-   acesso = Acesso.new
-   acesso.nome.set(@name)
-   acesso.email.set(Faker::Internet.email('teste'))
-   acesso.senha.set(102030)
+   cadastro = Cadastro.new
+   cadastro.nome.set(@name)
+   cadastro.email.set(Faker::Internet.email('teste'))
+   cadastro.senha.set(102030)
    find(:css, 'button[class ="btn btn-lg btn-primary"]').click
   end
 
@@ -19,3 +20,4 @@ Quando("eu realizar um cadastro novo") do
 Então("o cadastro é executado com sucesso") do
   expect(page).to have_content @name
 end
+
